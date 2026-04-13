@@ -4,15 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://neowtfqtca2" path="res://icon.svg" id="1_la844"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xq0f"]
-size = Vector2(88, 88)
+size = Vector2(41, 38)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_jms01")
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.695313, 0.6875)
+scale = Vector2(0.318359, 0.289063)
 texture = ExtResource("1_la844")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0xq0f")
+
+[node name="Dash_timer" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="timeout" from="Dash_timer" to="." method="_on_dash_timer_timeout"]
