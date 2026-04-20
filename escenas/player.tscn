@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dke42u6cm6xbw"]
+[gd_scene load_steps=15 format=3 uid="uid://dke42u6cm6xbw"]
 
 [ext_resource type="Script" path="res://escenas/player.gd" id="1_jms01"]
 [ext_resource type="Texture2D" uid="uid://cvxsy1mflw334" path="res://escenas/idlesi.png" id="2_6lch1"]
@@ -88,6 +88,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:texture:load_path")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["res://.godot/imported/doble salto.png-187686e99cc278a658254fcc82ef7fba.ctex"]
 }
 
 [sub_resource type="Animation" id="Animation_5m254"]
@@ -215,7 +227,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_5xyu4"]
 resource_name = "dash"
-length = 0.65
+length = 0.55
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -247,10 +259,51 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6]
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_g6e35"]
+resource_name = "double_jump"
+length = 0.55
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:load_path")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["res://.godot/imported/doble salto.png-187686e99cc278a658254fcc82ef7fba.ctex"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_agj5n"]
@@ -259,6 +312,7 @@ _data = {
 "caida": SubResource("Animation_adwg5"),
 "caminar": SubResource("Animation_5m254"),
 "dash": SubResource("Animation_5xyu4"),
+"double_jump": SubResource("Animation_g6e35"),
 "idle": SubResource("Animation_sj2xl"),
 "jump": SubResource("Animation_nd65b")
 }

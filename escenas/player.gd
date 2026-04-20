@@ -13,14 +13,12 @@ func _physics_process(_delta):
 	if not is_on_floor():
 		velocity.y += gravity * _delta
 	else:
-		doublejump = false
+		doublejump = true
 	
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = -jump_speed
-			doublejump = true 
-		else:
-			if doublejump:  
+		elif doublejump:  
 				velocity.y = -jump_speed
 				doublejump = false
 	else:
@@ -29,8 +27,8 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("dash"):
 		dashing = true
-		animationPlayer.play("dash")
 		$Dash_timer.start()
+		animationPlayer.play("dash")
 	
 	var input_axis = Input.get_axis("move_left","move_right")
 	velocity.x = input_axis * move_speed
@@ -50,13 +48,17 @@ func _physics_process(_delta):
 	
 func animations(input_axis):
 	if is_on_floor():
+		if dashing:
+			animationPlayer.play("dash") 
+			return
 		if input_axis == 0:
 			animationPlayer.play("idle")
 		else:
 			animationPlayer.play("caminar")
+			return
 	else:
 		if velocity.y < 0:
-			animationPlayer.play("jump")
+				animationPlayer.play("jump")
 		elif velocity.y > 0:
 			animationPlayer.play("caida")
 
